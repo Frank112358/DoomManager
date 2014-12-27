@@ -24,9 +24,7 @@ import java.util.logging.Level;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
-import java.util.logging.StreamHandler;
 
-import org.doommanager.util.LogFormatter;
 import org.doommanager.util.RuntimeArgsContainer;
 import org.doommanager.view.MainViewController;
 
@@ -112,8 +110,8 @@ public class ManagerCore extends Application {
 	/**
 	 * Stops the program by calling the Platform's exit() method.
 	 */
-	public void quit() {
-		log.info("Exiting " + APPLICATION_TITLE);
+	public static void quit() {
+		log.log(Level.FINE, "Exiting " + APPLICATION_TITLE);
 		Platform.exit();
 	}
 	
@@ -140,17 +138,20 @@ public class ManagerCore extends Application {
 	private static void setupLogging() {
 		// Set up the global log level.
 		LogManager.getLogManager().getLogger("").setLevel(RuntimeArgsContainer.getGlobalLogLevel());
-		LogManager.getLogManager().getLogger("").addHandler(new StreamHandler(System.out, new LogFormatter(false)));
 		
 		// Set up the file writing.
 		try {
-			FileHandler fileHandler = new FileHandler(RuntimeArgsContainer.getLogfileLocation());
+			FileHandler fileHandler = new FileHandler(RuntimeArgsContainer.getLogFilePathName());
 			fileHandler.setLevel(RuntimeArgsContainer.getGlobalLogLevel());
 			fileHandler.setFormatter(new SimpleFormatter());
-		} catch (SecurityException se) {
-			log.log(Level.WARNING, "Security exception preventing generation of the log file", se);
-		} catch (IOException ioe) {
-			log.log(Level.WARNING, "IO exception preventing generation of the log file", ioe);
+			LogManager.getLogManager().getLogger("").addHandler(fileHandler);
+			log.log(Level.INFO, "Logging file to " + RuntimeArgsContainer.getLogFilePathName());
+		} catch (SecurityException | IOException e) {
+			log.log(Level.WARNING, "Unable to generate log file: ", e);
+			if (RuntimeArgsContainer.exitIfLogGenerationFails()) {
+				log.log(Level.SEVERE, "Discontinuing program since log file failed to generate by user runtime argument request");
+				System.exit(1);
+			}
 		}
 	}
 	

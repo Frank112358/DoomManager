@@ -114,7 +114,7 @@ public class MainViewController {
 	 * Quits the entire program.
 	 */
 	public void quitProgram() {
-		this.managerCore.quit();
+		ManagerCore.quit();
 	}
 	
 	/**
