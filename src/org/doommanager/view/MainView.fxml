@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane fx:id="mainBorderContainer" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.doommanager.view.MainViewController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                  <Menu mnemonicParsing="false" text="New">
+                    <items>
+                      <MenuItem fx:id="menuFileNewWad" mnemonicParsing="false" text="Wad File" />
+                        <MenuItem fx:id="menuFileNewPK3" mnemonicParsing="false" text="PK3 File" />
+                    </items>
+                  </Menu>
+                  <MenuItem fx:id="menuFileOpen" mnemonicParsing="false" onAction="#openDialogFileChooser" text="Open" />
+              <MenuItem fx:id="menuFileExit" mnemonicParsing="false" onAction="#quitProgram" text="Exit" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem fx:id="menuHelpAbout" mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <bottom>
+      <AnchorPane fx:id="bottomBarAnchorContainer" prefHeight="24.0" prefWidth="640.0" BorderPane.alignment="CENTER">
+         <children>
+            <Rectangle fx:id="bottomBarRectangle" height="24.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="0.576923076923077" startX="1.0">
+                     <stops>
+                        <Stop color="#d0caca" />
+                        <Stop color="#c9c8c8" offset="0.007407407407407408" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Rectangle>
+            <Label fx:id="bottomBarStatusLabel" layoutX="10.0" layoutY="5.0" text="Welcome to DoomManager!" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="10.0">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </bottom>
+   <center>
+      <TabPane fx:id="fileTabContainer" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>
