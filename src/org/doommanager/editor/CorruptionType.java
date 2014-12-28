@@ -16,8 +16,36 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.doommanager.view;
+package org.doommanager.editor;
 
-public class DoomFileViewController {
-
+/**
+ * Encapsulation of corruption types.
+ */
+public enum CorruptionType {
+	NOT_CORRUPT("Not corrupt");
+	
+	/**
+	 * The reason for the corruption (debuggable message).
+	 */
+	private String reason; 
+	
+	/**
+	 * Displays the corruption type.
+	 * 
+	 * @param reason
+	 * 		The reason for the corruption.
+	 */
+	private CorruptionType(String reason) {
+		this.reason = reason;
+	}
+	
+	/**
+	 * Gets a human printable reason for the corruption message.
+	 * 
+	 * @return
+	 * 		The reason for the corruption.
+	 */
+	public String getReason() {
+		return reason;
+	}
 }

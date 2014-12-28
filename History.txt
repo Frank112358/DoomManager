@@ -1,6 +1,6 @@
 // Doom Manager history  v0.1
 //=============================================================================
-//   * Major feature addition
+//  *+ Major feature addition
 //   + Feature addition
 //   - Bug fix
 //   ! Minor change
@@ -11,4 +11,4 @@ v0.1 alpha:
 
 	+ Implemented an argument handler to easy access to specified user data. [CK]
 	+ Added logging system. [CK]
-	+ Added ByteHandler class for file manpiluation. [CK]
+	+ Added ByteHandler class for easy data manipulation. [CK]

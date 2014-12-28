@@ -16,8 +16,28 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.doommanager.view;
+package org.doommanager.editor;
 
-public class DoomFileViewController {
+/**
+ * Signifies that this object is corruptable and should be checked for any kind
+ * of corruption before attempting to utilize it.
+ */
+public interface Corruptable {
 
+	/**
+	 * Gets the corruption type.
+	 * 
+	 * @return
+	 * 		The corruption type enumeration. If there is none, it will return
+	 * 		CorruptionType.NOT_CORRUPT.
+	 */
+	CorruptionType getCorruptionType();
+	
+	/**
+	 * Checks if this object is corrupt or not.
+	 * 
+	 * @return
+	 * 		True if it is corrupt and unsafe to use, false if it's safe to use.
+	 */
+	boolean isCorrupt();
 }

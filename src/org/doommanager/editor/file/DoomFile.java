@@ -16,8 +16,15 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.doommanager.view;
+package org.doommanager.editor.file;
 
-public class DoomFileViewController {
+/**
+ * The common interface between all kinds of files (like Wads, PK files...etc).
+ */
+public interface DoomFile {
 
+	/**
+	 * Gets the file path for this object.
+	 */
+	String getFilePath();
 }

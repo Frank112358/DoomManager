@@ -16,8 +16,18 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.doommanager.view;
+package org.doommanager.editor;
 
-public class DoomFileViewController {
+/**
+ * Indicates that the object has resources in memory that can be freed to
+ * facilitate garbage collection, or any kind of file resources that should be
+ * ended when the object has dispose() called.
+ */
+public interface Disposable {
 
+	/**
+	 * Performs clean-up of the object by releasing any resources or cleaning
+	 * up any large data structures.
+	 */
+	void dispose();
 }
