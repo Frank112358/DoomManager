@@ -15,9 +15,6 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-//
-// 
-// da;sldfj
 
 package org.doommanager;
 
@@ -37,7 +34,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-// wumbologyolgyologyology
+
 /**
  * Program execution starts here.
  */
